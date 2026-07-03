@@ -8,8 +8,8 @@
 <style>
 .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:3.5rem var(--ph) 3rem;position:relative;overflow:hidden}
 @media(max-height:580px) and (orientation:landscape){.hero{min-height:auto;padding:5.5rem var(--ph) 2.5rem}.scroll-hint{display:none}}
-.hero-mesh{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 80% 60% at 20% 50%,rgba(79,142,247,.08) 0%,transparent 60%),radial-gradient(ellipse 60% 80% at 80% 30%,rgba(245,200,66,.07) 0%,transparent 60%),radial-gradient(ellipse 50% 50% at 50% 90%,rgba(48,213,168,.05) 0%,transparent 60%)}
-.hero-dots{position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(79,142,247,.1) 1px,transparent 1px);background-size:32px 32px;mask-image:radial-gradient(ellipse 85% 85% at 50% 50%,black 20%,transparent 100%)}
+.hero-mesh{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 75% 60% at 15% 20%,rgba(232,169,60,.22) 0%,transparent 60%),radial-gradient(ellipse 65% 75% at 85% 15%,rgba(124,108,240,.26) 0%,transparent 60%),radial-gradient(ellipse 60% 55% at 75% 90%,rgba(34,217,163,.16) 0%,transparent 60%),radial-gradient(ellipse 50% 50% at 10% 85%,rgba(240,82,95,.09) 0%,transparent 60%)}
+.hero-dots{position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(154,141,245,.14) 1px,transparent 1px);background-size:32px 32px;mask-image:radial-gradient(ellipse 85% 85% at 50% 50%,black 20%,transparent 100%)}
 .hero-inner{display:grid;grid-template-columns:1fr 300px;gap:4rem;align-items:center;position:relative;z-index:1;max-width:1300px}
 .hero-h1{font-family:var(--serif);font-size:clamp(2.5rem,7vw,7.5rem);font-weight:400;line-height:1.0;letter-spacing:-.035em;margin-bottom:1rem}
 .hero-h1 span{display:block;color:var(--text)}
@@ -34,12 +34,13 @@
 @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
 .work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);margin-top:3rem}
 .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
-.pillar{background:var(--bg2);padding:2.75rem;transition:background .3s;position:relative;overflow:hidden}
-.pillar::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--blue));transform:scaleX(0);transition:transform .4s;transform-origin:left}
-.pillar:hover{background:var(--bg3)}.pillar:hover::before{transform:scaleX(1)}
-.p-num{font-family:var(--serif);font-size:3.5rem;font-weight:300;color:var(--border);line-height:1;margin-bottom:.75rem}
-.p-icon{font-size:1.75rem;margin-bottom:.9rem;display:block}
+.pillar{background:var(--bg2);padding:2.75rem;transition:background .3s,transform .3s;position:relative;overflow:hidden}
+.pillar::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent,var(--gold));transform:scaleX(0);transition:transform .4s;transform-origin:left}
+.pillar:hover{background:var(--bg3);transform:translateY(-4px)}.pillar:hover::before{transform:scaleX(1)}
+.p-num{font-family:var(--serif);font-size:3.5rem;font-weight:300;color:color-mix(in srgb,var(--accent,var(--gold)) 20%,var(--border));line-height:1;margin-bottom:.75rem}
+.p-icon{font-size:1.5rem;margin-bottom:1.1rem;display:flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:14px;background:color-mix(in srgb,var(--accent,var(--gold)) 16%,transparent);border:1px solid color-mix(in srgb,var(--accent,var(--gold)) 30%,transparent)}
 .p-title{font-family:var(--serif);font-size:1.35rem;font-weight:400;color:var(--text);margin-bottom:.75rem;line-height:1.2}
+.pillar.p-gold{--accent:var(--gold)}.pillar.p-violet{--accent:var(--blue)}.pillar.p-teal{--accent:var(--teal)}
 .p-body{font-family:var(--sans);font-size:.85rem;line-height:1.7;color:var(--text2);margin-bottom:1rem}
 .video-split{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
 .video-frame{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;background:var(--bg3);border:1px solid var(--border2);box-shadow:var(--shadow)}
@@ -74,8 +75,8 @@ input:checked+.toggle-slider::before{background:#fff;transform:translateX(20px)}
 .alt-sr-lbl{font-family:var(--mono);font-size:.44rem;letter-spacing:.08em;text-transform:uppercase;color:var(--blue2);margin-bottom:.1rem}
 .alt-sr-txt{font-family:var(--mono);font-size:.52rem;color:var(--text2)}
 .alt-badge{display:inline-block;font-family:var(--mono);font-size:.46rem;letter-spacing:.06em;text-transform:uppercase;padding:.12rem .42rem;border-radius:2px;margin-top:.28rem}
-.bfail{background:rgba(242,107,107,.1);color:var(--red);border:1px solid rgba(242,107,107,.25)}
-.bpass{background:rgba(48,213,168,.07);color:var(--teal);border:1px solid rgba(48,213,168,.2)}
+.bfail{background:rgba(240,82,95,.1);color:var(--red);border:1px solid rgba(240,82,95,.25)}
+.bpass{background:rgba(34,217,163,.07);color:var(--teal);border:1px solid rgba(34,217,163,.2)}
 .kb-acc{display:flex;flex-direction:column;gap:2px}
 .kb-item{border:1px solid var(--border);overflow:hidden}
 .kb-hdr{padding:.72rem 1rem;font-family:var(--sans);font-size:.8rem;color:var(--text);display:flex;justify-content:space-between;align-items:center;cursor:pointer;background:rgba(255,255,255,.04);transition:background .2s}
@@ -99,7 +100,7 @@ input:checked+.toggle-slider::before{background:#fff;transform:translateX(20px)}
 .r-stat-n{font-family:var(--serif);font-size:1.6rem;font-weight:300;color:var(--gold);display:block;line-height:1}
 .r-stat-l{font-family:var(--mono);font-size:.48rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);display:block;margin-top:.25rem}
 .r-kws{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:1.75rem}
-.r-kw{font-family:var(--mono);font-size:.52rem;letter-spacing:.08em;text-transform:uppercase;padding:.22rem .6rem;background:rgba(79,142,247,.08);color:var(--blue2);border:1px solid rgba(79,142,247,.22);border-radius:3px}
+.r-kw{font-family:var(--mono);font-size:.52rem;letter-spacing:.08em;text-transform:uppercase;padding:.22rem .6rem;background:rgba(124,108,240,.08);color:var(--blue2);border:1px solid rgba(124,108,240,.22);border-radius:3px}
 .r-cards{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin-bottom:1.75rem}
 .r-card{background:var(--bg2);padding:1.4rem}
 .r-ci{font-size:1.35rem;display:block;margin-bottom:.45rem}
@@ -117,7 +118,7 @@ input:checked+.toggle-slider::before{background:#fff;transform:translateX(20px)}
 .nl-pts li::before{content:'✓';color:var(--teal);font-family:var(--mono);font-size:.63rem;flex-shrink:0}
 .nl-form{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:.6rem}
 .nl-inp{flex:1;min-width:155px;font-family:var(--sans);font-size:.9rem;background:var(--bg2);border:1px solid var(--border2);color:var(--text);padding:.75rem 1rem;outline:none;transition:all .2s;border-radius:4px}
-.nl-inp:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(79,142,247,.1)}
+.nl-inp:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(124,108,240,.1)}
 .nl-skip{font-family:var(--mono);font-size:.56rem;letter-spacing:.07em;color:var(--muted);background:none;border:none;cursor:pointer;padding:0;display:block;margin-top:.25rem;transition:color .2s}
 .nl-skip:hover{color:var(--text)}
 @media(max-width:1280px){.hero-inner{grid-template-columns:1fr}.hero-card{max-width:320px;margin-top:2.5rem}}
@@ -255,7 +256,6 @@ input:checked+.toggle-slider::before{background:#fff;transform:translateX(20px)}
       <div style="position:relative">
         <img class="hero-card-img" id="hero-photo" src="https://lh3.googleusercontent.com/sitesv/AA5AbUDrUecff9TABrfMo6Sl2qkFbZmlRVNQypsJ1LuhV4kh4r3mpVREXZwcI0vNGCu9O62S7Kgtucn8FfksrEqkx9gknCZbneNubROplxMlW8PGWQ64i-h6ZanSLNBrUnFHSFJb8HXtl3ZJPfDEDCAQFLsMKD1jWULIzN9ZdnLyISinG-5HWmWqfJWqDT42GrnB9vu8aq8361x8whw3dQYEIsVgmYuYa64ZDOZj=w400" alt="Madhu Kumar Sikilammetla" onerror="this.onerror=null;this.replaceWith(document.getElementById('hero-photo-fallback').content.cloneNode(true).firstElementChild)">
         <template id="hero-photo-fallback"><div class="hero-card-img hero-photo-placeholder"><span>MK</span></div></template>
-        <div class="seal-badge" style="position:absolute;bottom:-14px;right:-14px" title="7+ years, certified &amp; verified practice"><span>✓</span></div>
       </div>
       <div class="hero-card-name">Madhu Kumar Sikilammetla</div>
       <div class="hero-card-role">Instructional Designer &amp; eLearning Developer</div>
@@ -274,9 +274,9 @@ input:checked+.toggle-slider::before{background:#fff;transform:translateX(20px)}
   <div class="eyebrow reveal">What I Do</div>
   <h2 class="display reveal d1">Design thinking meets<br><em>engineering precision.</em></h2>
   <div class="pillars" style="margin-top:3rem">
-    <div class="pillar reveal d1"><div class="p-num">01</div><span class="p-icon">✏️</span><h3 class="p-title">Instructional Design</h3><p class="p-body">Scenario-based learning, branching narratives, and assessments grounded in ADDIE, SAM, Bloom's, and Gagné's 9 Events — designed for measurable behaviour change, not completion rates.</p><div class="tags"><span class="tag tag-b">ADDIE · SAM</span><span class="tag tag-b">Bloom's</span><span class="tag">Scenario Design</span></div></div>
-    <div class="pillar reveal d2"><div class="p-num">02</div><span class="p-icon">⚡</span><h3 class="p-title">eLearning Development</h3><p class="p-body">Custom JavaScript in Storyline 360, AR/VR with ZapWorks, 3D animation with Blender, video with Vyond, SCORM/xAPI packaging — built beyond the authoring tool default.</p><div class="tags"><span class="tag tag-b">Storyline 360</span><span class="tag tag-b">JavaScript</span><span class="tag tag-g">ZapWorks AR</span></div></div>
-    <div class="pillar reveal d3"><div class="p-num">03</div><span class="p-icon">🌍</span><h3 class="p-title">Localisation &amp; Accessibility</h3><p class="p-body">End-to-end localisation across 16–22 languages including Arabic RTL, LMS admin on Mindtickle and Docebo, ADA/508 engineered from the template level.</p><div class="tags"><span class="tag tag-t">ADA / 508</span><span class="tag tag-b">16–22 Languages</span><span class="tag">RTL</span></div></div>
+    <div class="pillar p-gold reveal d1"><div class="p-num">01</div><span class="p-icon">✏️</span><h3 class="p-title">Instructional Design</h3><p class="p-body">Scenario-based learning, branching narratives, and assessments grounded in ADDIE, SAM, Bloom's, and Gagné's 9 Events — designed for measurable behaviour change, not completion rates.</p><div class="tags"><span class="tag tag-b">ADDIE · SAM</span><span class="tag tag-b">Bloom's</span><span class="tag">Scenario Design</span></div></div>
+    <div class="pillar p-violet reveal d2"><div class="p-num">02</div><span class="p-icon">⚡</span><h3 class="p-title">eLearning Development</h3><p class="p-body">Custom JavaScript in Storyline 360, AR/VR with ZapWorks, 3D animation with Blender, video with Vyond, SCORM/xAPI packaging — built beyond the authoring tool default.</p><div class="tags"><span class="tag tag-b">Storyline 360</span><span class="tag tag-b">JavaScript</span><span class="tag tag-g">ZapWorks AR</span></div></div>
+    <div class="pillar p-teal reveal d3"><div class="p-num">03</div><span class="p-icon">🌍</span><h3 class="p-title">Localisation &amp; Accessibility</h3><p class="p-body">End-to-end localisation across 16–22 languages including Arabic RTL, LMS admin on Mindtickle and Docebo, ADA/508 engineered from the template level.</p><div class="tags"><span class="tag tag-t">ADA / 508</span><span class="tag tag-b">16–22 Languages</span><span class="tag">RTL</span></div></div>
   </div>
   <div style="display:flex;gap:1rem;margin-top:2.5rem;flex-wrap:wrap"><a href="process.html" class="btn btn-outline">How I Work →</a><a href="services.html" class="btn btn-ghost">View Services →</a></div>
 </section>
@@ -348,7 +348,7 @@ input:checked+.toggle-slider::before{background:#fff;transform:translateX(20px)}
   <div class="eyebrow reveal g">Interactive Tools &amp; Demos</div>
   <h2 class="display reveal d1">Don't just read.<br><em>Try it.</em></h2>
   <div class="tools-bento reveal" style="margin-top:3rem">
-    <a href="ai-analyzer.html" class="tb tb-wide" style="background:linear-gradient(135deg,rgba(79,142,247,.1) 0%,rgba(48,213,168,.08) 100%);border-bottom:1px solid var(--border)">
+    <a href="ai-analyzer.html" class="tb tb-wide" style="background:linear-gradient(135deg,rgba(124,108,240,.1) 0%,rgba(34,217,163,.08) 100%);border-bottom:1px solid var(--border)">
       <span class="tb-badge bn">✦ AI-Powered</span><span class="tb-icon">🤖</span>
       <div class="tb-title">AI Course Quality Analyzer</div>
       <div class="tb-body">Describe your course → instant ID quality score, Bloom's assessment, accessibility flags. Powered by Claude AI.</div>
